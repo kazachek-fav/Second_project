@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой второй умный сайт</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Мой второй сайт с Мозгами</h1>
+    <p>Сегодня научимся отправлять запрос и обрабатывать его</p>
+    <form action="/" method="post">
+        <label for="message">Напиши как себя чувствуешь:</label><br>
+        <textarea name="message" id="message" rows="4" cols="50" 
+            placeholder="Например: Сегодня у меня всё хорошо!" required>{{ user_text }}</textarea><br>
+        <button type="submit">Анализировтаь</button>
+    </form>
+
+    {% if recommendation %}
+    <div class="result">
+        <h3>Рекомендация:</h3>
+        <p>{{ recommendation }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
